@@ -1,0 +1,37 @@
+GET http://localhost:8080/bookings
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+  client.assert(response.body.length === 0, "Response status is not 200");
+});
+%}
+###
+POST http://localhost:8080/bookings
+Content-Type: application/json
+
+{ "propertyAddress":  "Konin4", "bookedFrom":  "2023-05-01", "bookedTo":  "2023-05-05"}
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 201, "Response status is not 201");
+    });
+%}
+###
+GET http://localhost:8080/bookings
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+        client.assert(response.body.length === 1, "Response status is not 200");
+
+    });
+%}
+
+### Further tests...
+
+####
+GET http://localhost:8080/bookings/...
+###
+DELETE http://localhost:8080/bookings/...
+###
