@@ -5,15 +5,15 @@ import {useEffect, useState} from "react";
 
 function App() {
     const [bookings, setBookings] = useState([]);
-
+    const [booking, setBooking] = useState({id: '', bookedFrom: '', bookedTo: '', propertyAddress: ''});
     const updateBookings = () => {
-        console.log('update bookings');
         fetch('http://localhost:8080/bookings')
             .then(response => response.json())
             .then(data => setBookings(data));
     };
-    const rebookBooking = (booking) => {
-        console.log(booking);
+    const rebookBooking = (bookingData) => {
+        console.log(bookingData);
+        setBooking(bookingData);
     };
     const cancelBooking = (bookingId) => {
         fetch(`http://localhost:8080/bookings/${bookingId}`, {method: 'DELETE'})
@@ -30,12 +30,12 @@ function App() {
     }, []);
 
     return (
-    <>
-        <BookingForm onAddBooking={handleAddBooking} />
-        <hr />
-        <BookingTable bookings={bookings} onCancelBooking={cancelBooking} onRebookBooking={rebookBooking}/>
-    </>
-)
+        <>
+            <BookingForm booking={booking} onAddBooking={handleAddBooking} />
+            <hr />
+            <BookingTable bookings={bookings} onCancelBooking={cancelBooking} onRebookBooking={rebookBooking}/>
+        </>
+    )
 }
 
 export default App

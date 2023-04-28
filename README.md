@@ -5,6 +5,7 @@ Prepare a simple booking API that enables to create a booking, rebook or cancel 
 1. For simplicity address is just a string.
 2. At this stage we do not care for creator of the booking/block so he is not included.
 3. Requirements did not specify what should happen when owner wants to submit a block for a property that already has a booking at given time so it returns error.
+
 # Backend Solution
 I have decided to implement the solution in a clean architecture approach where all the business
 logic is separated from the infrastructure. 

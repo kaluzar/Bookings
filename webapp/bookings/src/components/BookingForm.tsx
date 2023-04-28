@@ -1,10 +1,10 @@
 import React, {useRef, useState} from 'react';
 
-function BookingForm({ onAddBooking }) {
-    const [bookedFrom, setBookedFrom] = useState('');
-    const [bookedTo, setBookedTo] = useState('');
-    const [propertyAddress, setPropertyAddress] = useState('');
-    const [rebook, setRebook] = useState(false);
+function BookingForm({ booking, onAddBooking }) {
+    const [id, setId] = useState(booking.id);
+    const [bookedFrom, setBookedFrom] = useState(booking.bookedFrom);
+    const [bookedTo, setBookedTo] = useState(booking.bookedTo);
+    const [propertyAddress, setPropertyAddress] = useState(booking.propertyAddress);
     const formRef = useRef(null);
 
     const handleSubmit = async (e) => {
@@ -16,7 +16,7 @@ function BookingForm({ onAddBooking }) {
             setBookedFrom('');
             setBookedTo('');
             setPropertyAddress('');
-            setRebook(false);
+            setId('');
         }
 
         const response = await fetch('http://localhost:8080/bookings', {
@@ -50,7 +50,7 @@ function BookingForm({ onAddBooking }) {
             </div>
             <div>
                 <label htmlFor="propertyAddress">Property address:</label>
-                <input type="text" id="propertyAddress" name="propertyAddress" value={propertyAddress} disabled={rebook} onChange={(e) => setPropertyAddress(e.target.value)} />
+                <input type="text" id="propertyAddress" name="propertyAddress" value={propertyAddress} disabled={!!id} onChange={(e) => setPropertyAddress(e.target.value)} />
             </div>
             <button type="submit">Book</button>
         </form>
