@@ -25,13 +25,16 @@ function App() {
         updateBookings();
     };
 
+    const bookingChanged = (bookingData) => {
+        setBooking(bookingData);
+    }
     useEffect(() => {
         updateBookings();
     }, []);
 
     return (
         <>
-            <BookingForm booking={booking} onAddBooking={handleAddBooking} />
+            <BookingForm bookingData={booking} onAddBooking={handleAddBooking} onBookingChanged={bookingChanged}/>
             <hr />
             <BookingTable bookings={bookings} onCancelBooking={cancelBooking} onRebookBooking={rebookBooking}/>
         </>

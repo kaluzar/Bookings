@@ -21,6 +21,7 @@ way to change the infrastructure or the persistence layer without any changes re
 6. Initial tests on live service written in BookingsApplication.http, further methods should be tested
 7. Bundle frontend and backend together
 8. Frontend tests.
+9. Frontend Typescript types.
 
 # Running the application
 1. Run the BookingsApplication Spring Boot application from an IDE.

@@ -45,7 +45,7 @@ public class BookingsFacade {
     }
 
     public Optional<BookingRebookedResponseDto> rebook(BookingRebookRequestDto rebookRequestDto) {
-        Optional<BookingRebookedResponseDto> response = bookingsRepository.findById(rebookRequestDto.bookingId())
+        Optional<BookingRebookedResponseDto> response = bookingsRepository.findById(rebookRequestDto.getBookingId())
                 .map(booking -> bookingsRebooker.rebook(booking, rebookRequestDto))
                 .map(bookingsRepository::save)
                 .map(BookingRebookedResponseDto::new);

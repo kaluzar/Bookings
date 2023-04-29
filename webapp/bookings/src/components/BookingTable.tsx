@@ -11,28 +11,31 @@ function BookingTable({ bookings, onCancelBooking, onRebookBooking }) {
 
 
     return (
-        <table>
-            <thead>
-            <tr>
-                <th>Booking ID</th>
-                <th>Property Address</th>
-                <th>Booking Start Date</th>
-                <th>Booking End Date</th>
-            </tr>
-            </thead>
-            <tbody>
-            {bookings.map((booking) => (
-                <tr key={booking.id}>
-                    <td>{booking.id}</td>
-                    <td>{booking.propertyAddress}</td>
-                    <td>{booking.bookedFrom}</td>
-                    <td>{booking.bookedTo}</td>
-                    <td><button onClick={() => handleCancelBooking(booking.id)}>Cancel</button></td>
-                    <td><button onClick={() => handleRebookBooking(booking)}>Rebook</button></td>
+        <div>
+            <h1>List of bookings</h1>
+            <table>
+                <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Property Address</th>
+                    <th>Booking Start Date</th>
+                    <th>Booking End Date</th>
                 </tr>
-            ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {bookings.map((booking) => (
+                    <tr key={booking.id}>
+                        <td>{booking.id}</td>
+                        <td>{booking.propertyAddress}</td>
+                        <td>{booking.bookedFrom}</td>
+                        <td>{booking.bookedTo}</td>
+                        <td><button onClick={() => handleCancelBooking(booking.id)}>Cancel</button></td>
+                        <td><button onClick={() => handleRebookBooking(booking)}>Rebook</button></td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+        </div>
     );
 }
 

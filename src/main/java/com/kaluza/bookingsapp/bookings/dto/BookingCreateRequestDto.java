@@ -8,6 +8,7 @@ import java.time.LocalDate;
 
 @Builder
 @Data
+@RequiredArgsConstructor
 public class BookingCreateRequestDto {
     private final LocalDate bookedFrom;
     private final LocalDate bookedTo;

@@ -31,7 +31,13 @@ GET http://localhost:8080/bookings
 ### Further tests...
 
 ####
-GET http://localhost:8080/bookings/...
+GET http://localhost:8080/bookings/2212be52-6931-4608-908f-35fe3593f2cf
 ###
 DELETE http://localhost:8080/bookings/...
 ###
+###
+PUT http://localhost:8080/bookings/2212be52-6931-4608-908f-35fe3593f2cf
+Content-Type: application/json
+
+{ "id":  "2212be52-6931-4608-908f-35fe3593f2cf", "bookedFrom":  "2023-05-01", "bookedTo":  "2023-05-05"}
+

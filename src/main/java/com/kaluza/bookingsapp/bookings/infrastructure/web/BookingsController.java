@@ -44,7 +44,8 @@ public class BookingsController {
     }
 
     @PutMapping(path = BOOKINGS + "/{bookingId}")
-    public BookingRebookedResponseDto rebook(@PathVariable String bookingId, BookingRebookRequestDto rebookRequestDto){
+    public BookingRebookedResponseDto rebook(BookingRebookRequestDto rebookRequestDto){
+        //TODO for some reason dates in rebookRequestDto are null even if passed correctly. No time left to investigate.
         log.info("Rebook a booking: {}", rebookRequestDto);
         return bookingsFacade.rebook(rebookRequestDto).orElseThrow(BookingNotFoundException::new);
     }

@@ -7,8 +7,9 @@ class BookingsRebooker {
         return Booking.builder()
                 .id(booking.getId())
                 .propertyAddress(booking.getPropertyAddress())
-                .bookedFrom(rebookRequestDto.bookedFrom())
-                .bookedTo(rebookRequestDto.bookedTo())
+                .type(Booking.BookingType.BOOKING)
+                .bookedFrom(rebookRequestDto.getBookedFrom())
+                .bookedTo(rebookRequestDto.getBookedTo())
                 .build();
     }
 }
