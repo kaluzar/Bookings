@@ -2,11 +2,15 @@ package com.kaluza.bookingsapp.bookings;
 
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
+/*
+ * Interface for the persistence layer. All database-level methods used by the application should be defined here.
+ * The implementation of this interface should indicate the database engine used by the application.
+ * This design enables to easily switch between different database engines (e.g. in-memory to SQL).
+ */
 interface BookingsRepository {
     String save(Booking booking);
     Optional<Booking> findById(String id);

@@ -16,8 +16,10 @@ class BookingsAppConfiguration {
     BookingRequestValidator bookingRequestValidator() {
         return new BookingRequestValidator();
     }
+
     @Bean
     BookingsFacade bookingsFacade() {
+        // Booking bean is defined here instead fo @Service annotation to limit dependencies on frameworks on business logic
         return new BookingsFacade(bookingsRepository(), bookingRequestValidator(), bookingsRebooker());
     }
 }

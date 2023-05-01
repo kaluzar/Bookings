@@ -7,7 +7,7 @@ import com.kaluza.bookingsapp.bookings.dto.BookingValidationStatus;
 import java.util.Collection;
 import java.util.HashSet;
 
-public class BookingRequestValidator {
+class BookingRequestValidator {
     public Collection<BookingValidationResponse> validate(BookingCreateRequestDto bookingRequestDto) {
         Collection<BookingValidationResponse> validationResult = new HashSet<>();
         if (bookingRequestDto.getBookedFrom() == null) {

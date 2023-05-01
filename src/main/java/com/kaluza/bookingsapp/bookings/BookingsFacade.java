@@ -6,6 +6,10 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
 
+/*
+ * BookingFacade is the only public class in the package and acts as a facade to all the business logic of the application.
+ * No other class should be accessed from outside this package.
+ */
 @AllArgsConstructor
 @Slf4j
 public class BookingsFacade {

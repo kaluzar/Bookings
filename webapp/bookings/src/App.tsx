@@ -21,7 +21,6 @@ function App() {
     };
 
     const handleAddBooking = () => {
-        //setBookings([...bookings, newBooking]);
         updateBookings();
     };
 

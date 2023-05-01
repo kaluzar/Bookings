@@ -16,14 +16,17 @@ way to change the infrastructure or the persistence layer without any changes re
 1. Not all tests have been written
 2. No jacoco report prepared to show test coverage
 3. Missing documentation for BookingController (e.g. Swagger)
-4. Using a true persistence layer, not the in-memory one.
-5. CI pipeline prepared to build and test the project continuously.
+4. True persistence layer, not the in-memory one.
+5. CI pipeline to build and test the project continuously.
 6. Initial tests on live service written in BookingsApplication.http, further methods should be tested
-7. Bundle frontend and backend together
-8. Frontend tests.
-9. Frontend Typescript types.
+7. Bundling frontend and backend together. Remove the hardcoded `http://localhost:8080` from typescript.
+8. Frontend styling.
+9. Frontend tests.
+10. Frontend Typescript types.
 
 # Running the application
 1. Run the BookingsApplication Spring Boot application from an IDE.
-2. run `npm run dev` from webapp/bookings/ directory
-   1. Open browser using url provided in the command response, most probably `http://localhost:5173`
+2. Install node.js 18.16.0 LTS (use NVM if using Windows) and vite globally.
+3. Install dependencies `npm install`.
+4. run `npm run dev` from webapp/bookings/ directory
+   1. Open browser using url provided in the command response, most probably `http://localhost:5173` if it was free.

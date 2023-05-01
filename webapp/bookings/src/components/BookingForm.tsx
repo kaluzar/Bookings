@@ -27,7 +27,7 @@ function BookingForm({ bookingData, onAddBooking, onBookingChanged }) {
     async function processBookingResponse(response: Response) {
         console.log(response.status);
         if (response.status === 400) {
-            console.log(await response.json());
+            // prepare a better error message handling, add form validation.
             alert(`Booking did not pass validation`);
         } else {
             onAddBooking();
